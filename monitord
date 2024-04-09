@@ -1,0 +1,11 @@
+#!/bin/bash
+
+RUN=$@
+
+trap "$RUN" SIGUSR1
+
+while :
+do
+	sleep 1 &
+	wait $!
+done
